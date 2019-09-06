@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Groceteria</string>
+
+    /*Font-name*/
+    <string name="font_poppins_Bold">Poppins-Bold.ttf</string>
+    <string name="font_poppins_Light">Poppins-Light.ttf</string>
+    <string name="font_poppins_Regular">Poppins-Regular.ttf</string>
+    <string name="font_poppins_SemiBold">Poppins-SemiBold.ttf</string>
+</resources>
