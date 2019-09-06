@@ -6,4 +6,20 @@
     <string name="font_poppins_Light">Poppins-Light.ttf</string>
     <string name="font_poppins_Regular">Poppins-Regular.ttf</string>
     <string name="font_poppins_SemiBold">Poppins-SemiBold.ttf</string>
+    <string name="hello">Hello,</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="log_in">Log In</string>
+    <string name="go">go</string>
+    <string name="forgot_passoword">Forgot Passoword ?</string>
+    <string name="create_account">Create Account ?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_mobile">Enter Mobile</string>
+    <string name="already_have_account">Already have account ?</string>
+    <string name="account">Account</string>
+    <string name="create_your">Create Your</string>
+    <string name="new_user">New User ?</string>
+    <string name="title">Title</string>
 </resources>

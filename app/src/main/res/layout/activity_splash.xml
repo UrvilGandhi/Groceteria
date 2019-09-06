@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:background="@color/yellow"
     android:layout_height="match_parent"
-    tools:context=".Activity.SplashActivity">
+    tools:context="com.example.groceteria.Activity.SplashActivity">
 
     <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/customTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GROCETERIA"
         android:textAlignment="center"
-        android:textSize="36sp"
-        app:fontName="@string/font_poppins_Bold"
         android:textColor="@color/white"
+        android:textSize="42sp"
+        app:fontName="@string/font_poppins_Bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

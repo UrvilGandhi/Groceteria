@@ -10,7 +10,6 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.example.groceteria.Constants.Constants;
 import com.example.groceteria.R;
 
-
 public class CustomTextView extends AppCompatTextView {
 
 

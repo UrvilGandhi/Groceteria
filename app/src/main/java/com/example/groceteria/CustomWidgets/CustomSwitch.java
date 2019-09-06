@@ -11,7 +11,6 @@ import androidx.appcompat.widget.SwitchCompat;
 import com.example.groceteria.Constants.Constants;
 import com.example.groceteria.R;
 
-
 public class CustomSwitch extends SwitchCompat {
 
 

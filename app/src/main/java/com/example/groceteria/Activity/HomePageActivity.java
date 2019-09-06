@@ -1,16 +1,16 @@
 package com.example.groceteria.Activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-import com.example.groceteria.Constants.BaseActivity;
 import com.example.groceteria.R;
 
-
-public class SplashActivity extends BaseActivity {
+public class HomePageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_home_page);
     }
 }

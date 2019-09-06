@@ -11,7 +11,6 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.example.groceteria.Constants.Constants;
 import com.example.groceteria.R;
 
-
 public class CustomButton extends AppCompatButton {
 
 

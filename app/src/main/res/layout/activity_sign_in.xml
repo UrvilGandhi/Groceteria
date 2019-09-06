@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Activity.SignInActivity">
+
+
+    <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/txth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/hello"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:fontName="@string/font_poppins_Light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/txtw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_to"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:fontName="@string/font_poppins_Light"
+        app:layout_constraintEnd_toEndOf="@+id/txth"
+        app:layout_constraintStart_toStartOf="@+id/txth"
+        app:layout_constraintTop_toBottomOf="@+id/txth" />
+
+    <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/txtg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAlignment="viewStart"
+        android:textColor="@color/yellow"
+        android:textSize="42sp"
+        app:fontName="@string/font_poppins_SemiBold"
+        app:layout_constraintEnd_toEndOf="@+id/txtw"
+        app:layout_constraintStart_toStartOf="@+id/txtw"
+        app:layout_constraintTop_toBottomOf="@+id/txtw" />
+
+    <com.example.groceteria.CustomWidgets.CustomEditText
+        android:id="@+id/edtUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="@string/enter_username"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        android:textCursorDrawable="@color/black"
+        android:textSize="16sp"
+        app:fontName="@string/font_poppins_Regular"
+        app:layout_constraintEnd_toEndOf="@+id/txtg"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/txtg"
+        app:layout_constraintTop_toBottomOf="@+id/txtg" />
+
+    <com.example.groceteria.CustomWidgets.CustomEditText
+        android:id="@+id/edtPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textAlignment="textStart"
+        app:fontName="@string/font_poppins_Regular"
+        android:hint="@string/enter_password"
+        android:textColorHint="@color/grey"
+        android:textCursorDrawable="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/edtUsername"
+        app:layout_constraintStart_toStartOf="@+id/edtUsername"
+        app:layout_constraintTop_toBottomOf="@+id/edtUsername" />
+
+    <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_in"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:fontName="@string/font_poppins_Light"
+        app:layout_constraintBottom_toTopOf="@+id/txtforgotPassword"
+        app:layout_constraintStart_toStartOf="@+id/edtPassword"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword"
+        app:layout_constraintVertical_bias="0.24000001" />
+
+    <ImageView
+        android:id="@+id/imgSignIn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circle"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/login"
+        app:layout_constraintEnd_toEndOf="@+id/edtPassword"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/login"
+        app:layout_constraintTop_toTopOf="@+id/login"
+        app:srcCompat="@drawable/go"
+        android:contentDescription="@string/go" />
+
+    <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/txtforgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/forgot_passoword"
+        android:textAlignment="viewStart"
+        android:textColor="@color/blue"
+        android:textSize="16sp"
+        app:fontName="@string/font_poppins_SemiBold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/login" />
+
+    <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/txtCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/create_account"
+        android:textAlignment="viewStart"
+        android:textColor="@color/blue"
+        android:textSize="16sp"
+        app:fontName="@string/font_poppins_SemiBold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edtPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

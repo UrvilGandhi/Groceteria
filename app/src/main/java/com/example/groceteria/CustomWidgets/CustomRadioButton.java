@@ -11,7 +11,6 @@ import androidx.appcompat.widget.AppCompatRadioButton;
 import com.example.groceteria.Constants.Constants;
 import com.example.groceteria.R;
 
-
 public class CustomRadioButton extends AppCompatRadioButton {
 
 

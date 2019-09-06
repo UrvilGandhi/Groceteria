@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.HomePageActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginRight="24dp"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imgMenu"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                app:srcCompat="@drawable/menu" />
+
+            <ImageView
+                android:id="@+id/imgNotification"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginRight="24dp"
+                android:layout_toLeftOf="@+id/imgCart"
+                app:srcCompat="@drawable/notification" />
+
+            <ImageView
+                android:id="@+id/imgCart"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/cart" />
+
+            <com.example.groceteria.CustomWidgets.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="24dp"
+                android:layout_toStartOf="@+id/imgNotification"
+                android:layout_toEndOf="@+id/imgMenu"
+                android:text="@string/title"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:id="@+id/toolbar_title"
+                app:fontName="@string/font_poppins_SemiBold" />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.example.groceteria.CustomWidgets.CustomAutoCmpltTxtVew
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:fontName="@string/font_poppins_Regular"
+        android:drawableStart="@drawable/search"
+        android:drawableEnd="@drawable/settings"
+        android:drawablePadding="5dp"
+        android:hint="Search your product"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

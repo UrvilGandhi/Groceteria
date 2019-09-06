@@ -10,7 +10,6 @@ import androidx.appcompat.widget.AppCompatEditText;
 import com.example.groceteria.Constants.Constants;
 import com.example.groceteria.R;
 
-
 public class CustomEditText extends AppCompatEditText {
 
 
