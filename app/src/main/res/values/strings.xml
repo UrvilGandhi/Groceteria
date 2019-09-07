@@ -22,4 +22,10 @@
     <string name="create_your">Create Your</string>
     <string name="new_user">New User ?</string>
     <string name="title">Title</string>
+    <string name="remeber_me">Remeber Me</string>
+    <string name="search_your_product">Search your product</string>
+    <string name="your_last_purchases">Your Last Purchases</string>
+    <string name="view_all">View All</string>
+    <string name="navigation_drawer_close">Navigation Drawer Closed</string>
+    <string name="navigation_drawer_open">Navigation Drawer Open</string>
 </resources>

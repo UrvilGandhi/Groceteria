@@ -1,0 +1,55 @@
+<?xml version= "1.0" encoding= "utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/orders"
+            android:iconTint="@color/yellow"
+            android:title="Orders" />
+        <item
+            android:id="@+id/nav_favourites"
+            android:icon="@drawable/favourite"
+            android:iconTint="@color/yellow"
+            android:title="Favourites" />
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/cart"
+            android:title="Cart" />
+        <item
+            android:id="@+id/nav_wallet"
+            android:icon="@drawable/wallet"
+            android:iconTint="@color/yellow"
+            android:title="Wallet" />
+        <item
+            android:id="@+id/nav_discounts"
+            android:icon="@drawable/discounts"
+            android:iconTint="@color/yellow"
+            android:title="Discounts" />
+        <item
+            android:id="@+id/nav_notification"
+            android:icon="@drawable/notification"
+            android:title="Notification" />
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/rate"
+            android:iconTint="@color/yellow"
+            android:title="Rate Us" />
+        <item
+            android:id="@+id/nav_terms"
+            android:icon="@drawable/ic_terms"
+            android:iconTint="@color/yellow"
+            android:title="Terms &amp; Conditions" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/support"
+            android:iconTint="@color/yellow"
+            android:title="Help &amp; Support" />
+        <item
+            android:id="@+id/nav_Settings"
+            android:icon="@drawable/gear"
+            android:iconTint="@color/yellow"
+            android:title="Settings" />
+    </group>
+</menu>

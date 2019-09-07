@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.HomePageActivity"></activity>
+        <activity android:name=".Activity.NavigationActivity"></activity>
+        <activity android:name=".Activity.HomePageActivity" />
         <activity android:name=".Activity.SignUpActivity" />
         <activity android:name=".Activity.SplashActivity" />
         <activity android:name=".Activity.SignInActivity">

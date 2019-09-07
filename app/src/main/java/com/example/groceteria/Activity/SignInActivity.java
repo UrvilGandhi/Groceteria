@@ -1,25 +1,26 @@
 package com.example.groceteria.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.groceteria.Constants.BaseActivity;
 import com.example.groceteria.Extras.DatabaseHelper;
 import com.example.groceteria.Extras.InputValidation;
 import com.example.groceteria.R;
 
-public class SignInActivity extends AppCompatActivity {
+public class SignInActivity extends BaseActivity {
 
     private InputValidation inputValidation;
     private DatabaseHelper databaseHelper;
     private EditText edtUsername, edtPassword;
-    private ImageView btnSignIn;
-    private TextView txtForgotPassword, txtCreateUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +29,16 @@ public class SignInActivity extends AppCompatActivity {
 
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword = findViewById(R.id.edtPassword);
-        btnSignIn = findViewById(R.id.imgSignIn);
-        txtForgotPassword = findViewById(R.id.txtforgotPassword);
-        txtCreateUser = findViewById(R.id.txtCreateAccount);
         databaseHelper = new DatabaseHelper(this);
         inputValidation = new InputValidation(this);
-
-        btnSignIn.setOnClickListener(v -> verifyFromSQLite());
+        ImageView btnSignIn = findViewById(R.id.imgSignIn);
+        TextView txtCreateUser = findViewById(R.id.txtCreateAccount);
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyFromSQLite();
+            }
+        });
 
         txtCreateUser.setOnClickListener(v -> startActivity(new Intent(SignInActivity.this, SignUpActivity.class)));
 
@@ -47,6 +51,7 @@ public class SignInActivity extends AppCompatActivity {
             return;
         }
         if (databaseHelper.checkUser(edtUsername.getText().toString().trim(), edtPassword.getText().toString().trim())) {
+            startActivity(new Intent(this, HomePageActivity.class));
             emptyInputEditText();
             Toast.makeText(this, "Login SuccessFull", Toast.LENGTH_SHORT).show();
         } else {
