@@ -1,21 +1,20 @@
 package com.example.groceteria.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.groceteria.Constants.BaseActivity;
 import com.example.groceteria.Extras.DatabaseHelper;
 import com.example.groceteria.Extras.InputValidation;
 import com.example.groceteria.Modal.User;
 import com.example.groceteria.R;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends BaseActivity {
 
     private EditText edtUser, edtEmail, edtMobile, edtPassword;
     private TextView txtLoginIn;

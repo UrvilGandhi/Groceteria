@@ -5,54 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_marginRight="24dp"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/imgNotification"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginRight="24dp"
-                android:layout_toLeftOf="@+id/imgCart"
-                app:srcCompat="@drawable/notification" />
-
-            <ImageView
-                android:id="@+id/imgCart"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_alignParentEnd="true"
-                app:srcCompat="@drawable/cart" />
-
-            <com.example.groceteria.CustomWidgets.CustomTextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:fontName="@string/font_poppins_SemiBold" />
-        </RelativeLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
     <com.example.groceteria.CustomWidgets.CustomAutoCmpltTxtVew
-        android:id="@+id/autoCompleteTextView"
+        android:id="@+id/searchbar"
         android:padding="10dp"
+        android:backgroundTint="@color/yellow"
         android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,21 +20,21 @@
         android:hint="@string/search_your_product"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
         android:background="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/searchbar" />
 
 
     <androidx.core.widget.NestedScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,23 +55,24 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraint_latest_purchase"
                 android:layout_width="0dp"
+                android:layout_margin="8dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_conversion_absoluteHeight="216dp"
-                tools:layout_conversion_absoluteWidth="379dp">
+                app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcv_lp"
-                    android:layout_width="0dp"
+                <com.example.groceteria.CustomWidgets.CustomTextView
+                    android:id="@+id/txtLastPurchase"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/your_last_purchases"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    app:fontName="@string/font_poppins_Regular"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtLastPurchase"
-                    tools:layout_conversion_absoluteHeight="190dp"
-                    tools:layout_conversion_absoluteWidth="379dp" />
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <com.example.groceteria.CustomWidgets.CustomTextView
                     android:id="@+id/lpViewall"
@@ -131,25 +88,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/constraint_latest_purchase"
                     tools:layout_conversion_absoluteHeight="29dp"
-                    tools:layout_conversion_absoluteWidth="60dp"
-                    tools:layout_editor_absoluteX="335dp"
-                    tools:layout_editor_absoluteY="144dp" />
+                    tools:layout_conversion_absoluteWidth="60dp" />
 
-                <com.example.groceteria.CustomWidgets.CustomTextView
-                    android:id="@+id/txtLastPurchase"
-                    android:layout_width="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_lp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/your_last_purchases"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:fontName="@string/font_poppins_Regular"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_conversion_absoluteHeight="26dp"
-                    tools:layout_conversion_absoluteWidth="159dp"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="145dp" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtLastPurchase"
+                    tools:layout_conversion_absoluteHeight="190dp"
+                    tools:layout_conversion_absoluteWidth="379dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -157,22 +107,13 @@
                 android:id="@+id/constraint_categories"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/constraint_latest_purchase"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/constraint_latest_purchase"
                 app:layout_constraintTop_toBottomOf="@+id/constraint_latest_purchase"
                 tools:layout_conversion_absoluteHeight="298dp"
                 tools:layout_conversion_absoluteWidth="0dp">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcv_cat"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@+id/catViewall"
-                    app:layout_constraintStart_toStartOf="@+id/constraint_categories"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCategories"
-                    tools:layout_conversion_absoluteHeight="298dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
 
                 <com.example.groceteria.CustomWidgets.CustomTextView
                     android:id="@+id/txtCategories"
@@ -182,13 +123,13 @@
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="16sp"
+                    android:layout_marginTop="5dp"
                     app:fontName="@string/font_poppins_Regular"
+                    app:layout_constraintBottom_toTopOf="@+id/rcv_cat"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_conversion_absoluteHeight="232dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="378dp" />
+                    tools:layout_conversion_absoluteWidth="0dp" />
 
                 <com.example.groceteria.CustomWidgets.CustomTextView
                     android:id="@+id/catViewall"
@@ -204,15 +145,26 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/constraint_categories"
                     tools:layout_conversion_absoluteHeight="130dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="429dp" />
+                    tools:layout_conversion_absoluteWidth="0dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_cat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/catViewall"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCategories"
+                    tools:layout_conversion_absoluteHeight="298dp"
+                    tools:layout_conversion_absoluteWidth="0dp">
+
+                </androidx.recyclerview.widget.RecyclerView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraint_offers"
                 android:layout_width="0dp"
+                android:layout_marginTop="8dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="@+id/constraint_categories"
                 app:layout_constraintStart_toStartOf="@+id/constraint_categories"
@@ -220,14 +172,18 @@
                 tools:layout_conversion_absoluteHeight="100dp"
                 tools:layout_conversion_absoluteWidth="0dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcv_offers"
-                    android:layout_width="0dp"
+                <com.example.groceteria.CustomWidgets.CustomTextView
+                    android:id="@+id/txtOffers"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="Offers"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:fontName="@string/font_poppins_Regular"
+                    android:layout_marginTop="5dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtOffers"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:layout_conversion_absoluteHeight="100dp"
                     tools:layout_conversion_absoluteWidth="0dp" />
 
@@ -245,21 +201,17 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/constraint_offers"
                     tools:layout_conversion_absoluteHeight="100dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="675dp" />
+                    tools:layout_conversion_absoluteWidth="0dp" />
 
-                <com.example.groceteria.CustomWidgets.CustomTextView
-                    android:id="@+id/txtOffers"
-                    android:layout_width="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_offers"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Offers"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:fontName="@string/font_poppins_Regular"
+                    android:layout_margin="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtOffers"
                     tools:layout_conversion_absoluteHeight="100dp"
                     tools:layout_conversion_absoluteWidth="0dp" />
 

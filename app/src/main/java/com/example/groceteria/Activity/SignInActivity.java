@@ -51,7 +51,7 @@ public class SignInActivity extends BaseActivity {
             return;
         }
         if (databaseHelper.checkUser(edtUsername.getText().toString().trim(), edtPassword.getText().toString().trim())) {
-            startActivity(new Intent(this, HomePageActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
             emptyInputEditText();
             Toast.makeText(this, "Login SuccessFull", Toast.LENGTH_SHORT).show();
         } else {

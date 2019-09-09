@@ -8,9 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Activity.NavigationActivity"></activity>
-        <activity android:name=".Activity.HomePageActivity" />
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity android:name=".Activity.SignUpActivity" />
         <activity android:name=".Activity.SplashActivity" />
         <activity android:name=".Activity.SignInActivity">
@@ -20,6 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity.OrderActivity" />
+        <activity android:name=".Activity.FavouritesActivity" />
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.CartActivity" />
+        <activity android:name=".Activity.WalletActivity" />
+        <activity android:name=".Activity.TermsConditionsActivity" />
+        <activity android:name=".Activity.SettingsActivity" />
+        <activity android:name=".Activity.RateUsActivity" />
+        <activity android:name=".Activity.NotificationActivity" />
     </application>
 
 </manifest>

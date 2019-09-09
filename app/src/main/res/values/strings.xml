@@ -1,7 +1,35 @@
 <resources>
-    <string name="app_name">Groceteria</string>
+    <array name="ld_activityScreenTitles">
+        <item>Home</item>
+        <item>Orders</item>
+        <item>Favourites</item>
+        <item>Cart</item>
+        <item>Wallet</item>
+        <item>Discounts</item>
+        <item>Notifications</item>
+        <item>Rate Us</item>
+        <item>Terms &amp; Conditions</item>
+        <item>Help &amp; Support</item>
+        <item>Settings</item>
+    </array>
 
     /*Font-name*/
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/go</item>
+        <item>@drawable/orders</item>
+        <item>@drawable/favourite</item>
+        <item>@drawable/cart</item>
+        <item>@drawable/wallet</item>
+        <item>@drawable/discounts</item>
+        <item>@drawable/notification</item>
+        <item>@drawable/rate</item>
+        <item>@drawable/support</item>
+        <item>@drawable/ic_terms</item>
+        <item>@drawable/gear</item>
+    </array>
+
+
+    <string name="app_name">Groceteria</string>
     <string name="font_poppins_Bold">Poppins-Bold.ttf</string>
     <string name="font_poppins_Light">Poppins-Light.ttf</string>
     <string name="font_poppins_Regular">Poppins-Regular.ttf</string>
@@ -22,10 +50,15 @@
     <string name="create_your">Create Your</string>
     <string name="new_user">New User ?</string>
     <string name="title">Title</string>
-    <string name="remeber_me">Remeber Me</string>
+    <string name="remeber_me">Remember Me</string>
     <string name="search_your_product">Search your product</string>
     <string name="your_last_purchases">Your Last Purchases</string>
     <string name="view_all">View All</string>
-    <string name="navigation_drawer_close">Navigation Drawer Closed</string>
-    <string name="navigation_drawer_open">Navigation Drawer Open</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="settings">Settings</string>
+    <string name="logout">LogOut</string>
+    <string name="cancel">Cancel</string>
 </resources>
