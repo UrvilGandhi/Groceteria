@@ -21,7 +21,7 @@ import java.util.List;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Categories>categoriesList;
+    private List<Categories> categoriesList;
 
     public CategoryAdapter(Context context, List<Categories> categoryList) {
         this.mContext = context;
@@ -32,7 +32,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.rcv_home_list_item, parent, false);
+                .inflate(R.layout.rcv_category_list_item, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -42,13 +42,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
         Categories categories = categoriesList.get(position);
 
-        holder.prodName.setText(categories.getProdName());
-        Picasso.get().load(categories.getDrawable()).into(holder.prodImage);
-        holder.btnAdd.setVisibility(View.GONE);
-        holder.btnLike.setVisibility(View.GONE);
-        holder.currentRate.setVisibility(View.GONE);
-        holder.offerRate.setVisibility(View.GONE);
-        holder.previousRate.setVisibility(View.GONE);
+        holder.catName.setText(categories.getProdName());
+        Picasso.get().load(categories.getDrawable()).into(holder.catImage);
+//        holder.btnAdd.setVisibility(View.GONE);
+//        holder.btnLike.setVisibility(View.GONE);
+//        holder.currentRate.setVisibility(View.GONE);
+//        holder.offerRate.setVisibility(View.GONE);
+//        holder.previousRate.setVisibility(View.GONE);
     }
 
     @Override
@@ -57,21 +57,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView prodImage;
-        TextView prodName, offerRate, previousRate, currentRate;
-        LikeButton btnLike;
-        Button btnAdd;
+        ImageView catImage;
+        TextView catName;
 
 
         MyViewHolder(View view) {
             super(view);
-            prodImage = view.findViewById(R.id.prodImage);
-            prodName = view.findViewById(R.id.prodName);
-            offerRate = view.findViewById(R.id.offer);
-            previousRate = view.findViewById(R.id.previousRate);
-            currentRate = view.findViewById(R.id.currentRate);
-            btnLike = view.findViewById(R.id.btnLike);
-            btnAdd = view.findViewById(R.id.btnAdd);
+            catImage = view.findViewById(R.id.catImage);
+            catName = view.findViewById(R.id.catName);
         }
     }
 }

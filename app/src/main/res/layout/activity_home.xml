@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -10,12 +12,110 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar" />
+        <include
+            layout="@layout/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
+            android:layout_weight="80"
             android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/top_navigation_constraint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+        </FrameLayout>
+
+        <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
+            android:id="@+id/top_navigation_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/c_item_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                app:bt_active="true"
+                app:bt_colorActive="@color/green"
+                app:bt_colorInactive="@color/green"
+                app:bt_icon="@drawable/home"
+                app:bt_shape="@drawable/bottom_navigation_chip"
+                app:bt_title="Home"
+                app:bt_titlePadding="10dp"
+                app:bt_titleSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/c_item_favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                app:bt_active="true"
+                app:bt_shape="@drawable/bottom_navigation_chip"
+                app:bt_colorActive="@color/green"
+                app:bt_colorInactive="@color/green"
+                app:bt_icon="@drawable/favourite"
+                app:bt_title="Favourites"
+                app:bt_titleSize="16sp"
+                app:bt_titlePadding="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/c_item_home"
+                app:layout_constraintStart_toEndOf="@+id/c_item_home"
+                app:layout_constraintTop_toTopOf="@+id/c_item_home" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/c_item_discounts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                app:bt_active="true"
+                app:bt_shape="@drawable/bottom_navigation_chip"
+                app:bt_colorActive="@color/green"
+                app:bt_colorInactive="@color/green"
+                app:bt_icon="@drawable/discounts"
+                app:bt_title="Discounts"
+                app:bt_titleSize="16sp"
+                app:bt_titlePadding="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/c_item_favourite"
+                app:layout_constraintStart_toEndOf="@+id/c_item_favourite"
+                app:layout_constraintTop_toTopOf="@+id/c_item_favourite" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/c_item_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                app:bt_active="true"
+                app:bt_colorActive="@color/green"
+                app:bt_shape="@drawable/bottom_navigation_chip"
+                app:bt_colorInactive="@color/green"
+                app:bt_icon="@drawable/profile"
+                app:bt_title="Profile"
+                app:bt_titleSize="16sp"
+                app:bt_titlePadding="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/c_item_discounts"
+                app:layout_constraintStart_toEndOf="@+id/c_item_discounts"
+                app:layout_constraintTop_toTopOf="@+id/c_item_discounts" />
+
+            <!-- Add more child items here - max upto 5 -->
+
+        </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+
 
     </LinearLayout>
 

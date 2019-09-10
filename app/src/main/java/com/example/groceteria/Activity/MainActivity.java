@@ -11,25 +11,27 @@ import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.groceteria.Adapters.DrawerAdapter;
+import com.example.groceteria.Constants.BaseActivity;
 import com.example.groceteria.Fragments.HomeFragment;
 import com.example.groceteria.Modal.DrawerItem;
 import com.example.groceteria.Modal.SimpleItem;
 import com.example.groceteria.R;
+import com.gauravk.bubblenavigation.BubbleNavigationConstraintView;
+import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 
 import java.util.Arrays;
 
 public
-class MainActivity extends AppCompatActivity implements
+class MainActivity extends BaseActivity implements
         DrawerAdapter.OnItemSelectedListener {
     // Drawer
     private static final int POS_home = 0;
@@ -79,7 +81,6 @@ class MainActivity extends AppCompatActivity implements
         setMenu();
 
         TextView tv_name = findViewById(R.id.tv_name);
-        tv_name.setText("Avengers");
     }
 
     private void initUI() {
@@ -87,11 +88,27 @@ class MainActivity extends AppCompatActivity implements
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-        fr = new HomeFragment ();
+        fr = new HomeFragment();
         FragmentTransaction fragmentTransaction =
-                getSupportFragmentManager ().beginTransaction ();
-        fragmentTransaction.replace ( R.id.container, fr );
-        fragmentTransaction.commit ();
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fr);
+        fragmentTransaction.commit();
+        BubbleNavigationConstraintView bubbleNavigation = findViewById(R.id.top_navigation_constraint);
+
+        bubbleNavigation.setNavigationChangeListener(new BubbleNavigationChangeListener() {
+            @Override
+            public void onNavigationChanged(View view, int position) {
+                if (position == 0) {
+                    fr = new HomeFragment();
+                    FragmentTransaction fragmentTransaction =
+                            getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.container, fr);
+                    fragmentTransaction.commit();
+                } else if (position == 2) {
+                    startActivity(new Intent(MainActivity.this, OrderActivity.class));
+                }
+            }
+        });
     }
 
     public void setMenu() {
@@ -121,8 +138,8 @@ class MainActivity extends AppCompatActivity implements
     private DrawerItem createItemFor(int position) {
         return new SimpleItem(screenIcons[position], screenTitles[position])
                 .withIconTint(color(R.color.yellow))
-                .withTextTint(color(R.color.blue))
-                .withSelectedIconTint(color(R.color.blue))
+                .withTextTint(color(R.color.green))
+                .withSelectedIconTint(color(R.color.green))
                 .withSelectedTextTint(color(R.color.yellow));
     }
 
@@ -151,11 +168,13 @@ class MainActivity extends AppCompatActivity implements
     @Override
     public void onItemSelected(int position) {
         if (position == POS_home) {
-            fr = new HomeFragment ();
+            fr = new HomeFragment();
             FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager ().beginTransaction ();
-            fragmentTransaction.replace ( R.id.container, fr );
-            fragmentTransaction.commit ();
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container, fr);
+            fragmentTransaction.commit();
+        } else if (position == POS_discounts) {
+            startActivity(new Intent(getApplicationContext(), OrderActivity.class));
         }
     }
 
