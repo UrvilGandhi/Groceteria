@@ -28,6 +28,23 @@
         <item>@drawable/gear</item>
     </array>
 
+    <string-array name="suggestions">
+    <item>Apple</item>
+    <item>Apricot</item>
+    <item>Avocado</item>
+    <item>Banana</item>
+    <item>Blueberry</item>
+    <item>Blackberry</item>
+    <item>Carrot</item>
+    <item>Cherry</item>
+    <item>Orange</item>
+    <item>Potato</item>
+    <item>Peach</item>
+    <item>Passion fruit</item>
+    <item>Pear</item>
+    <item>Strawberry</item>
+    </string-array>
+
 
     <string name="app_name">Groceteria</string>
     <string name="font_poppins_Bold">Poppins-Bold.ttf</string>

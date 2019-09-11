@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +26,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private View view;
-    private AutoCompleteTextView searchBar;
+    private SearchView searchBar;
     private RecyclerView rcv_LastPurchase, rcv_Categories, rcv_Offers;
     private List<LastPurchase> lpList = new ArrayList<>();
     private List<Categories> categoryList = new ArrayList<>();
@@ -42,7 +43,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void initUI() {
-        searchBar = view.findViewById(R.id.searchbar);
         rcv_LastPurchase = view.findViewById(R.id.rcv_lp);
         rcv_Categories = view.findViewById(R.id.rcv_cat);
         rcv_Offers = view.findViewById(R.id.rcv_offers);

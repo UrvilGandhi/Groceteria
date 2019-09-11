@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.example.groceteria.Modal.User;
 
@@ -15,6 +16,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "UserManager.db";
 
     private static final String TABLE_USER = "user";
+    private static final String TABLE_PRODUCTS = "products";
+    private static final String COLUMN_PRODUCT_NAME = "prodName";
 
     private static final String COLUMN_USER_ID = "user_id";
     private static final String COLUMN_USER_NAME = "user_name";
@@ -53,6 +56,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_PASSWORD, user.getPassword());
 
         db.insert(TABLE_USER, null, values);
+        db.close();
+    }
+
+    public void seachData(String searchText){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery =  "SELECT * FROM " + TABLE_PRODUCTS + " WHERE " + COLUMN_PRODUCT_NAME + " LIKE '%" + searchText + "%'";// It's a good practice to use parameter ?, instead of concatenate string
+
+        int iCount =0;
+
+        Cursor cursor = db.rawQuery(selectQuery, new String[] { String.valueOf(searchText) } );
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                String prodName =cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_NAME));
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
         db.close();
     }
 

@@ -1,12 +1,14 @@
 package com.example.groceteria.Activity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
@@ -20,7 +22,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.groceteria.Adapters.DrawerAdapter;
 import com.example.groceteria.Constants.BaseActivity;
+import com.example.groceteria.Fragments.FavouritesFragment;
 import com.example.groceteria.Fragments.HomeFragment;
+import com.example.groceteria.Fragments.OfferFragment;
+import com.example.groceteria.Fragments.ProfileFragment;
 import com.example.groceteria.Modal.DrawerItem;
 import com.example.groceteria.Modal.SimpleItem;
 import com.example.groceteria.R;
@@ -51,6 +56,7 @@ class MainActivity extends BaseActivity implements
     private Toolbar toolbar;
     private String[] screenTitles;
     private Drawable[] screenIcons;
+    private TextView tv_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +71,7 @@ class MainActivity extends BaseActivity implements
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_home);
 
         initUI();
@@ -79,8 +86,6 @@ class MainActivity extends BaseActivity implements
         toolbar.setNavigationIcon(R.drawable.menu);
 
         setMenu();
-
-        TextView tv_name = findViewById(R.id.tv_name);
     }
 
     private void initUI() {
@@ -88,6 +93,8 @@ class MainActivity extends BaseActivity implements
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
+        tv_title = toolbar.findViewById(R.id.tv_title);
+        ImageView btnSearch = toolbar.findViewById(R.id.search);
         fr = new HomeFragment();
         FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager().beginTransaction();
@@ -104,9 +111,47 @@ class MainActivity extends BaseActivity implements
                             getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.container, fr);
                     fragmentTransaction.commit();
+                    tv_title.setText("Groceteria");
                 } else if (position == 2) {
-                    startActivity(new Intent(MainActivity.this, OrderActivity.class));
+                    fr = new OfferFragment();
+                    FragmentTransaction fragmentTransaction =
+                            getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.container, fr);
+                    fragmentTransaction.commit();
+                    tv_title.setText("Offers");
+                } else if (position == 1) {
+                    fr = new FavouritesFragment();
+                    FragmentTransaction fragmentTransaction =
+                            getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.container, fr);
+                    fragmentTransaction.commit();
+                    tv_title.setText("Favourites");
+                } else if (position == 3) {
+                    fr = new ProfileFragment();
+                    FragmentTransaction fragmentTransaction =
+                            getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.container, fr);
+                    fragmentTransaction.commit();
+                    tv_title.setText("Profile");
                 }
+            }
+        });
+
+//        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);
+//        if (fragment instanceof HomeFragment) {
+//            bubbleNavigation.setCurrentActiveItem(0);
+//        } else if (fragment instanceof OfferFragment) {
+//            bubbleNavigation.setCurrentActiveItem(2);
+//        } else if (fragment instanceof FavouritesFragment) {
+//            bubbleNavigation.setCurrentActiveItem(1);
+//        } else if (fragment instanceof ProfileFragment) {
+//            bubbleNavigation.setCurrentActiveItem(3);
+//        }
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),SearchActivity.class));
             }
         });
     }
@@ -173,8 +218,21 @@ class MainActivity extends BaseActivity implements
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.container, fr);
             fragmentTransaction.commit();
+            tv_title.setText("Groceteria");
         } else if (position == POS_discounts) {
-            startActivity(new Intent(getApplicationContext(), OrderActivity.class));
+            fr = new OfferFragment();
+            FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container, fr);
+            fragmentTransaction.commit();
+            tv_title.setText("Offers");
+        } else if (position == POS_favourites) {
+            fr = new FavouritesFragment();
+            FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container, fr);
+            fragmentTransaction.commit();
+            tv_title.setText("Favourites");
         }
     }
 
@@ -204,5 +262,7 @@ class MainActivity extends BaseActivity implements
         }
 
     }
+
+
 }
 
