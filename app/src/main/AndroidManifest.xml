@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".Activity.SaerchActivity"></activity>
+        <activity android:name=".Activity.ProdDetailsActivity"></activity>
+        <activity android:name=".Activity.SaerchActivity" />
         <activity android:name=".Activity.SignUpActivity" />
         <activity android:name=".Activity.SplashActivity" />
         <activity android:name=".Activity.MainActivity">

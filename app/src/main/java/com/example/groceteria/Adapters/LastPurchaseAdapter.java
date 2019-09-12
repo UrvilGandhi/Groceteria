@@ -2,6 +2,7 @@ package com.example.groceteria.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.groceteria.Activity.ProdDetailsActivity;
 import com.example.groceteria.Fragments.HomeFragment;
 import com.example.groceteria.Modal.LastPurchase;
 import com.example.groceteria.R;
@@ -60,6 +62,13 @@ public class LastPurchaseAdapter extends RecyclerView.Adapter<LastPurchaseAdapte
             holder.btnLike.setLiked(false);
         }
 
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.startActivity(new Intent(mContext, ProdDetailsActivity.class));
+            }
+        });
+
     }
 
     @Override
@@ -72,6 +81,7 @@ public class LastPurchaseAdapter extends RecyclerView.Adapter<LastPurchaseAdapte
         TextView prodName, offerRate, previousRate, currentRate;
         LikeButton btnLike;
         Button btnAdd;
+        CardView cardView;
 
 
         public MyViewHolder(View view) {
@@ -83,6 +93,7 @@ public class LastPurchaseAdapter extends RecyclerView.Adapter<LastPurchaseAdapte
             currentRate = view.findViewById(R.id.currentRate);
             btnLike = view.findViewById(R.id.btnLike);
             btnAdd = view.findViewById(R.id.btnAdd);
+            cardView = view.findViewById(R.id.cardView);
         }
     }
 }
