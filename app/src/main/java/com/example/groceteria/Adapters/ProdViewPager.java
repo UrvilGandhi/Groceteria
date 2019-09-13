@@ -38,25 +38,20 @@ public class ProdViewPager extends PagerAdapter{
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return view == ((RelativeLayout) object);
+        return view == object;
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
         View itemView = layoutInflater.inflate(R.layout.detail_viewpager, container, false);
 
-        ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView);
+        ImageView imageView = itemView.findViewById(R.id.imageView);
         imageView.setImageResource(bannerList.get(position));
 
         container.addView(itemView);
 
         //listening to image click
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "you clicked image " + (position + 1), Toast.LENGTH_LONG).show();
-            }
-        });
+        imageView.setOnClickListener(v -> Toast.makeText(context, "you clicked image " + (position + 1), Toast.LENGTH_LONG).show());
 
         return itemView;
     }

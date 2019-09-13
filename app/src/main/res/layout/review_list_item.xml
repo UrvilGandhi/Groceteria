@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/personImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/txtPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Natasha Romanoff"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:fontName="@string/font_poppins_SemiBold"
+        app:layout_constraintStart_toEndOf="@+id/personImage"
+        app:layout_constraintTop_toTopOf="@+id/personImage" />
+
+    <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="3dp"
+        android:text="16/07/2019"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:fontName="@string/font_poppins_Light"
+        app:layout_constraintBottom_toBottomOf="@+id/personImage"
+        app:layout_constraintStart_toEndOf="@+id/personImage"
+        app:layout_constraintTop_toBottomOf="@+id/txtPersonName" />
+
+    <RatingBar
+        android:id="@+id/reviewRate"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="@+id/personImage"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate" />
+
+    <com.example.groceteria.CustomWidgets.CustomTextView
+        android:id="@+id/txtReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="This is a great Apple; I like them best in pies, especially Apple Betty pies. they are a little tart so if using them for sauce, I always needed to add sweetener. I like to peel and dice them and then dip them in lemon juice and freeze them, then all set for making pies!"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:fontName="@string/font_poppins_Regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewRate"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

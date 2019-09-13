@@ -1,12 +1,14 @@
 package com.example.groceteria.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.groceteria.Adapters.ProdViewPager;
@@ -19,6 +21,7 @@ import com.example.groceteria.Fragments.ReviewsFragment;
 import com.example.groceteria.R;
 import com.google.android.material.tabs.TabLayout;
 import com.like.LikeButton;
+import com.like.OnLikeListener;
 import com.travijuu.numberpicker.library.NumberPicker;
 import com.viewpagerindicator.CirclePageIndicator;
 
@@ -29,15 +32,15 @@ import java.util.Timer;
 public class ProdDetailsActivity extends BaseActivity {
 
     private ViewPager vpProdImage, vpProdDetails;
+    private Toolbar toolbar;
     private LikeButton btnLike;
-    private TextView prodName, prodRate, prodPreviousRate, prodRating, txtDisplay;
+    private TextView prodName, prodRate, prodPreviousRate, prodRating, txtDisplay,tv_title;
     private TabLayout tabProdDetails;
-    private NumberPicker prodQuantity;
     private Button btnBuyNow, btnAddtoCart, btnIncrement, btnDecrement;
     private ProdViewPager prodViewPager;
+    private RelativeLayout relativeLayout;
 
     private List<Integer> imageList = new ArrayList<>();
-    private boolean isLiked = false;
     private int count = 0;
 
 
@@ -46,6 +49,8 @@ public class ProdDetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prod_details);
 
+        toolbar = findViewById(R.id.actionbar);
+        tv_title = toolbar.findViewById(R.id.tv_title);
         btnLike = findViewById(R.id.btnLike);
         prodName = findViewById(R.id.prodName);
         prodRate = findViewById(R.id.txtprodRate);
@@ -55,12 +60,24 @@ public class ProdDetailsActivity extends BaseActivity {
         txtDisplay = findViewById(R.id.display);
         btnIncrement = findViewById(R.id.increment);
         btnDecrement = findViewById(R.id.decrement);
+        relativeLayout = findViewById(R.id.relativeLayout);
+        vpProdImage = findViewById(R.id.vpProdImage);
 
         imageList.add(R.drawable.gapples);
         imageList.add(R.drawable.grapples);
         imageList.add(R.drawable.green);
 
-        vpProdImage = (ViewPager)findViewById(R.id.vpProdImage);
+        if (toolbar != null){
+            setSupportActionBar(toolbar);
+            tv_title.setText("Details");
+            toolbar.setNavigationIcon(R.drawable.back);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
 
         prodViewPager = new ProdViewPager(this, imageList);
         vpProdImage.setAdapter(prodViewPager);
@@ -71,11 +88,17 @@ public class ProdDetailsActivity extends BaseActivity {
             circlePageIndicator.setViewPager(vpProdImage);
         }
 
-        if (isLiked) {
-            btnLike.setLiked(true);
-        } else {
-            btnLike.setLiked(false);
-        }
+        btnLike.setOnLikeListener(new OnLikeListener() {
+            @Override
+            public void liked(LikeButton likeButton) {
+                btnLike.setLiked(true);
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+                btnLike.setLiked(false);
+            }
+        });
 
         prodName.setText("Green Apples (1 kg)");
         prodRate.setText("Rs. 25");
@@ -90,21 +113,15 @@ public class ProdDetailsActivity extends BaseActivity {
         tabProdDetails.setupWithViewPager(vpProdDetails);
 
         txtDisplay.setText(String.valueOf(count));
-        btnIncrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-                txtDisplay.setText(String.valueOf(count));
-            }
+        btnIncrement.setOnClickListener(v -> {
+            count++;
+            txtDisplay.setText(String.valueOf(count));
         });
 
-        btnDecrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (count > 0) {
-                    count--;
-                    txtDisplay.setText(String.valueOf(count));
-                }
+        btnDecrement.setOnClickListener(v -> {
+            if (count > 0) {
+                count--;
+                txtDisplay.setText(String.valueOf(count));
             }
         });
 
@@ -114,7 +131,6 @@ public class ProdDetailsActivity extends BaseActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new DescriptionFragment(), "Description");
-        adapter.addFrag(new FeaturesFragment(), "Features");
         adapter.addFrag(new ReviewsFragment(), "Reviews");
         adapter.addFrag(new BenefitsFragment(), "Benefits");
         viewPager.setAdapter(adapter);

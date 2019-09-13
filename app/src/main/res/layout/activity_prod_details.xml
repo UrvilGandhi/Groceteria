@@ -289,33 +289,33 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabProdDetails"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            app:tabBackground="@drawable/tab_selector"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtprodRate"
-            app:tabGravity="fill"
-            app:tabMode="scrollable">
+            app:tabGravity="center"
+            app:tabMode="fixed">
 
             <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="35"
                 android:text="@string/description"
                 android:textAlignment="center" />
 
             <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/features" />
-
-            <com.google.android.material.tabs.TabItem
+                android:layout_weight="35"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/reviews" />
 
             <com.google.android.material.tabs.TabItem
+                android:layout_weight="35"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/benefits" />
@@ -324,10 +324,11 @@
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/circle"
+            android:backgroundTint="@color/green"
             app:layout_constraintBottom_toTopOf="@+id/prodName"
             app:layout_constraintEnd_toEndOf="parent">
 
